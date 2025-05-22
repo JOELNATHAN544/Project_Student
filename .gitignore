@@ -2,8 +2,8 @@
 /build/
 
 # Ignore specific file types
-*.csv
-*.txt
+src/*.csv
+src/*.txt
 
 # Ignore all non-Java files in src/ (if that's what you want)
 src/*
