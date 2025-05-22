@@ -1,3 +1,10 @@
-./src/*.txt
-./src/*.csv
-build/
+# Ignore all files in build directory
+/build/
+
+# Ignore specific file types
+*.csv
+*.txt
+
+# Ignore all non-Java files in src/ (if that's what you want)
+src/*
+!src/*.java
