@@ -3,21 +3,17 @@ import java.util.Scanner;
 
 public class RPSGame {
     public static void main(String[] args) {
-        int x = 0;
-        x = ++x;
-        System.out.println(4 + 3 * 2);
-        // System.getCommandLineArgs();
-        System.out.println("Welcome to Rock, Paper, Scissors!");
-        // System.exit(1);
+        System.out.println("Welcome to Rock, Paper, Scissors, Lizard, Spock!");
+
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
-        String[] choices = { "rock", "paper", "scissors" };
+        String[] choices = { "rock", "paper", "scissors", "lizard", "spock" };
         int userScore = 0;
         int computerScore = 0;
 
         while (true) {
             System.out.print(
-                    "\nEnter your choice (rock, paper, scissors), 'score' to see the current score or 'exit' to quit: ");
+                    "\nEnter your choice (rock, paper, scissors, lizard, spock), 'score' to see the current score or 'exit' to quit: ");
             String userChoice = scanner.nextLine().toLowerCase();
 
             if (userChoice.equals("exit")) {
@@ -29,21 +25,27 @@ public class RPSGame {
                 continue;
             }
 
-            if (!userChoice.equals("rock") && !userChoice.equals("paper") && !userChoice.equals("scissors")) {
+            boolean validChoice = false;
+            for (String choice : choices) {
+                if (choice.equals(userChoice)) {
+                    validChoice = true;
+                    break;
+                }
+            }
+
+            if (!validChoice) {
                 System.out.println("Invalid choice. Please try again.");
                 continue;
             }
 
-            int computerChoiceIndex = random.nextInt(3);
+            int computerChoiceIndex = random.nextInt(choices.length);
             String computerChoice = choices[computerChoiceIndex];
 
             System.out.println("Computer chose: " + computerChoice);
 
             if (userChoice.equals(computerChoice)) {
                 System.out.println("It's a tie!");
-            } else if ((userChoice.equals("rock") && computerChoice.equals("scissors")) ||
-                    (userChoice.equals("paper") && computerChoice.equals("rock")) ||
-                    (userChoice.equals("scissors") && computerChoice.equals("paper"))) {
+            } else if (winsAgainst(userChoice, computerChoice)) {
                 System.out.println("You win!");
                 userScore++;
             } else {
@@ -56,5 +58,13 @@ public class RPSGame {
 
         System.out.println("Thanks for playing! Final Score - You: " + userScore + ", Computer: " + computerScore);
         scanner.close();
+    }
+
+    public static boolean winsAgainst(String user, String computer) {
+        return (user.equals("rock") && (computer.equals("scissors") || computer.equals("lizard"))) ||
+                (user.equals("paper") && (computer.equals("rock") || computer.equals("spock"))) ||
+                (user.equals("scissors") && (computer.equals("paper") || computer.equals("lizard"))) ||
+                (user.equals("lizard") && (computer.equals("spock") || computer.equals("paper"))) ||
+                (user.equals("spock") && (computer.equals("scissors") || computer.equals("rock")));
     }
 }

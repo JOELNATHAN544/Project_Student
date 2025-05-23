@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 import java.io.BufferedReader; // For reading
-import java.io.FileReader; // For reading 
+import java.io.FileReader; // For reading
 
 public class StudentGrade {
     private String name;

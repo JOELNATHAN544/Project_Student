@@ -1,5 +1,5 @@
 # Ignore all files in build directory
-/build/
+/bin/
 
 # Ignore specific file types
 src/*.csv

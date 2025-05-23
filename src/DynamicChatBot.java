@@ -3,7 +3,7 @@ import java.util.*;
 public class DynamicChatBot {
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
-            Random random = new Random(); 
+            Random random = new Random();
 
             // Map of keyword to list of responses
             Map<String, List<String>> responses = new HashMap<>();
