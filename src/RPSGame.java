@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class RPSGame {
     public static void main(String[] args) {
         int x = 0;
-        x = ++x; 
+        x = ++x;
         System.out.println(4 + 3 * 2);
         // System.getCommandLineArgs();
         System.out.println("Welcome to Rock, Paper, Scissors!");

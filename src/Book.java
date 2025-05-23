@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map; // Use Map interface for the collection
 import java.util.Scanner;
- 
+
 public class Book {
     private final int id;
     private final String title;
